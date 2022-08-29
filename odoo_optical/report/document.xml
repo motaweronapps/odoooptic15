@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']" position="after">
+            <t t-set="lens_data" t-value="doc.get_report_lens_details()"/>
+            <br/>
+            <center><strong>Lens Details</strong></center>
+            <t t-foreach="lens_data['tables']" t-as="table">
+                <table t-attf-style="width:100%;"  class="table table-sm o_main_table">
+                    <tr t-if="table['heading']">
+                        <th t-esc="table['heading']" colspan="99"/>
+                    </tr>
+                    <tr t-foreach="table['table']" t-as="row">
+                        <t t-foreach="row" t-as="col">
+                            <th class="text-center" t-esc="col['value']" t-if="col['type'] == 'col_head'"/>
+                            <td class="text-left" t-esc="col['value']" t-if="col['type'] == 'row_head'"/>
+                            <td class="text-center" t-if="col['type'] == 'value'"><span t-esc="col['value']"/></td>
+                        </t>
+                    </tr>
+                </table>
+            </t>
+
+
+
+
+
+<!--            <table t-attf-style="width:100%;"  class="table table-sm o_main_table">-->
+<!--                <thead>-->
+<!--                    <tr>-->
+<!--                        <th class="text-center">RX</th>-->
+<!--                        <th class="text-center">SPH</th>-->
+<!--                        <th class="text-center">CYL</th>-->
+<!--                        <th class="text-center">AXIS</th>-->
+<!--                        <th class="text-center">PRISM</th>-->
+<!--                        <th class="text-center">ADD</th>-->
+<!--                        <th class="text-center">VA</th>-->
+<!--                        <th class="text-center">PD</th>-->
+<!--                    </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                    <tr>-->
+<!--                        <td>O.D (Right)</td>-->
+<!--                        <td class="text-center"><span t-field="doc.right_sph"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.right_cyl"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.right_axis"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.right_prism"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.right_add"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.right_va"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.right_pd"/></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>O.S (Left)</td>-->
+<!--                        <td class="text-center"><span t-field="doc.left_sph"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.left_cyl"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.left_axis"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.left_prism"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.left_add"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.left_va"/></td>-->
+<!--                        <td class="text-center"><span t-field="doc.left_pd"/></td>-->
+<!--                    </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+
+            <span t-if="doc.prescription_note">
+                <span t-field="doc.prescription_note"/><br/>
+            </span>
+
+            <br/>
+            <strong>Product Items</strong>
+        </xpath>
+    </template>
+
+</odoo>

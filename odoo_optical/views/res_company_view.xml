@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--  Form  -->
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="name">res.company.form.inherit.optical</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_info']" position="after">
+                <page string="Lens Details">
+                    <group>
+                        <group string="Configure">
+                            <table>
+                                <tr><td><label string="SPH" for="lens_visible_sph"/></td><td>&#160;</td><td><field name="lens_visible_sph" widget="boolean_toggle"/></td></tr>
+                                <tr><td><label string="CYL" for="lens_visible_cyl"/></td><td>&#160;</td><td><field name="lens_visible_cyl" widget="boolean_toggle"/></td></tr>
+                                <tr><td><label string="AXIS" for="lens_visible_axis"/></td><td>&#160;</td><td><field name="lens_visible_axis" widget="boolean_toggle"/></td></tr>
+                                <tr><td><label string="PRISM" for="lens_visible_prism"/></td><td>&#160;</td><td><field name="lens_visible_prism" widget="boolean_toggle"/></td></tr>
+                                <tr><td><label string="ADD" for="lens_visible_add"/></td><td>&#160;</td><td><field name="lens_visible_add" widget="boolean_toggle"/></td></tr>
+                                <tr><td><label string="VA" for="lens_visible_va"/></td><td>&#160;</td><td><field name="lens_visible_va" widget="boolean_toggle"/></td></tr>
+                                <tr><td><label string="PD" for="lens_visible_pd"/></td><td>&#160;</td><td><field name="lens_visible_pd" widget="boolean_toggle"/></td></tr>
+                                <tr><td><label string="Far &amp; Near Vision" for="lens_visible_far_near"/></td><td>&#160;</td><td><field name="lens_visible_far_near" widget="boolean_toggle"/></td></tr>
+                            </table>
+                        </group>
+                        <group string="Preview">
+                            <table border="1" bordercolor="gray" >
+                                <tr><td attrs="{'invisible':[('lens_visible_far_near','!=',True)]}" style="border:0px solid;padding: 4px;padding-bottom:0px;" colspan="99"><h5>Far Vision</h5></td></tr>
+                                <tr>
+                                    <td style="width: 16%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold">RX</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_sph','!=',True)]}">SPH</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_cyl','!=',True)]}">CYL</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_axis','!=',True)]}">AXIS</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_prism','!=',True)]}">PRISM</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_add','!=',True)]}">ADD</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_va','!=',True)]}">VA</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_pd','!=',True)]}">PD</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px; text-align:left; font-weight:bold; background-color: #8bfddd">O.D (Right)</td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_sph','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_cyl','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_axis','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_prism','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_add','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_va','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_pd','!=',True)]}"> </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px; text-align:left; font-weight:bold; background-color: #8bfddd">O.S (Left)</td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_sph','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_cyl','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_axis','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_prism','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_add','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_va','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_pd','!=',True)]}"> </td>
+                                </tr>
+
+                                <tr><td attrs="{'invisible':[('lens_visible_far_near','!=',True)]}" style="border:0px solid;padding: 4px;padding-bottom:0px;" colspan="99"><h5>Near Vision</h5></td></tr>
+                                <tr attrs="{'invisible':[('lens_visible_far_near','!=',True)]}">
+                                    <td style="width: 16%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold">RX</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_sph','!=',True)]}">SPH</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_cyl','!=',True)]}">CYL</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_axis','!=',True)]}">AXIS</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_prism','!=',True)]}">PRISM</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_add','!=',True)]}">ADD</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_va','!=',True)]}">VA</td>
+                                    <td style="width: 12%; padding-left:8px; padding-right:8px; text-align:center; background-color:#8aa8fd; font-weight:bold" attrs="{'invisible':[('lens_visible_pd','!=',True)]}">PD</td>
+                                </tr>
+                                <tr attrs="{'invisible':[('lens_visible_far_near','!=',True)]}">
+                                    <td style="padding:4px; text-align:left; font-weight:bold; background-color: #8bfddd">O.D (Right)</td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_sph','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_cyl','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_axis','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_prism','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_add','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_va','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_pd','!=',True)]}"> </td>
+                                </tr>
+                                <tr attrs="{'invisible':[('lens_visible_far_near','!=',True)]}">
+                                    <td style="padding:4px; text-align:left; font-weight:bold; background-color: #8bfddd">O.S (Left)</td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_sph','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_cyl','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_axis','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_prism','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_add','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_va','!=',True)]}"> </td>
+                                    <td style="padding:4px; text-align:center" attrs="{'invisible':[('lens_visible_pd','!=',True)]}"> </td>
+                                </tr>
+                            </table>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
